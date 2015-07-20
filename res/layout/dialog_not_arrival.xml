@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="#66000000"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dip"
+        android:background="@drawable/gray_bt01"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:padding="10dip"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="因故未到"
+                android:textColor="@color/text_color_black"
+                android:textSize="16dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未到原因"
+                android:textSize="14dip" />
+
+            <Spinner
+                android:id="@+id/reason"
+                android:layout_width="fill_parent"
+                android:layout_height="30dip"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/shape_rectangle_white_with_radius_border"
+                android:paddingLeft="10dip"
+                android:singleLine="true"
+                android:textColor="@color/text_color_black"
+                android:textColorHint="@color/text_color_hint"
+                android:textSize="16dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="详细描述"
+                android:textSize="14dip" />
+
+            <EditText
+                android:id="@+id/detail"
+                android:layout_width="fill_parent"
+                android:layout_height="120dip"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/shape_rectangle_white_with_radius_border"
+                android:maxLength="150"
+                android:padding="5dip"
+                android:gravity="top|left"
+                android:singleLine="false"
+                android:textColor="@color/text_color_black"
+                android:textColorHint="@color/text_color_hint"
+                android:textSize="14dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dip" >
+
+            <Button
+                android:id="@+id/button_ok"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_gray"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="提交"
+                android:textColor="@color/text_color_deep_gray"
+                android:textSize="16dip" />
+
+            <Button
+                android:id="@+id/button_cancel"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dip"
+                android:background="@drawable/button_gray"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="取消"
+                android:textColor="@color/text_color_deep_gray"
+                android:textSize="16dip" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

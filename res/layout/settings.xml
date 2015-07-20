@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_rectangle_white_with_radius_border"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="帐号："
+                android:textColor="@color/text_color_black"
+                android:textSize="14dip" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="---"
+                android:textColor="@color/text_color_black"
+                android:textSize="14dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="姓名："
+                android:textColor="@color/text_color_black"
+                android:textSize="14dip" />
+
+            <TextView
+                android:id="@+id/true_name"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="false"
+                android:text="---"
+                android:textColor="@color/text_color_black"
+                android:textSize="14dip" />
+        </LinearLayout>
+
+        <!--
+		<com.fg114.main.app.view.MyImageView
+			android:id="@+id/advertisement_image_view"
+			android:layout_width="fill_parent"
+			android:layout_height="50dp"
+			android:layout_margin="0dp"
+			android:scaleType="fitXY"
+			android:visibility="gone" />
+        -->
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_rectangle_white_with_radius_border"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="当前版本："
+                android:textColor="@color/text_color_black"
+                android:textSize="14dip" />
+
+            <TextView
+                android:id="@+id/version"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="---"
+                android:textColor="@color/text_color_black"
+                android:textSize="14dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="最新版本："
+                android:textColor="@color/text_color_black"
+                android:textSize="14dip" />
+
+            <TextView
+                android:id="@+id/new_version"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="false"
+                android:text="---"
+                android:textColor="@color/text_color_black"
+                android:textSize="14dip" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/testType"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dip" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="模拟数据" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试接口" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正式接口" />
+    </RadioGroup>
+
+</LinearLayout>

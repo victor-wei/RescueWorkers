@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparence">#00000000</color>
+    <color name="text_color_white">#ffffff</color>
+    <color name="text_color_black">#000000</color>
+    <color name="text_color_deep_red">#680000</color>
+    <color name="text_color_red_2">#ce3b27</color>
+    <color name="text_color_red">#bf0001</color>
+    <color name="text_color_deep_gray">#3f3f3f</color>
+    <color name="text_color_gray">#777777</color>
+    <color name="text_color_light_gray">#AAAAAA</color>
+    <color name="text_color_lighter_gray">#CCCCCC</color>
+    <color name="text_color_default">#333333</color>
+    <color name="text_color_deep_blue">#4c566c</color>
+    <color name="text_color_shallow_blue">#FF59709A</color>
+    <color name="text_color_blue">#0000BB</color>
+    <color name="background_color_white">#ffffff</color>
+    <color name="background_color_green">#505F03</color>
+    <color name="background_color_black">#000000</color>
+    <color name="background_color_yellow">#FFFFCC</color>
+    <color name="background_color_deep_red">#680000</color>
+    <color name="background_color_deeper_red">#3d0000</color>
+    <color name="background_color_super57_gallery">#ececec</color>
+    <color name="background_color_gray">#E7E7E7</color>
+    <color name="background_color_deep_gray">#AAAAAA</color>
+    <color name="background_color_thin_gray">#f7f7f7</color>
+    <color name="border_color_gray">#AAAAAA</color>
+    <color name="border_color_deep_gray">#999999</color>
+    <color name="border_color_light_gray">#DDDDDD</color>
+    <color name="border_color_white">#FFFFFF</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="text_color_hint">#999999</color>
+    <color name="divider">#C6C6C6</color>
+    <color name="line">#ababab</color>
+    <color name="background_color_transparent">#66000000</color>
+</resources>

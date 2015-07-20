@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:gravity="top"
+    android:padding="0dip" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#01000000"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp" >
+
+        <!-- 客户到达信息 -->
+
+        <LinearLayout
+            android:id="@+id/guest_arrival_info_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:baselineAligned="false"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="70dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dip"
+                    android:background="@color/background_color_gray"
+                    android:ellipsize="end"
+                    android:padding="5dip"
+                    android:singleLine="true"
+                    android:text="就餐人数"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="14dip" />
+
+                <EditText
+                    android:id="@+id/people_num"
+                    android:layout_width="100dip"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_rectangle_white_with_radius_border"
+                    android:gravity="top|left"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:padding="5dip"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textColorHint="@color/text_color_hint"
+                    android:textSize="14dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="70dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dip"
+                    android:background="@color/background_color_gray"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:padding="5dip"
+                    android:singleLine="true"
+                    android:text="餐位类型"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="14dip" />
+
+                <RadioGroup
+                    android:id="@+id/room_type"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checkedButton="@+id/room_type_default"
+                    android:orientation="horizontal"
+                    android:padding="0dip" >
+
+                    <RadioButton
+                        android:id="@+id/room_type_default"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dip"
+                        android:button="@drawable/radio_box"
+                        android:paddingLeft="30dip"
+                        android:tag="2"
+                        android:text="包房"
+                        android:textColor="@color/text_color_gray" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dip"
+                        android:layout_marginLeft="20dip"
+                        android:button="@drawable/radio_box"
+                        android:paddingLeft="30dip"
+                        android:tag="1"
+                        android:text="大厅"
+                        android:textColor="@color/text_color_gray" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="70dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dip"
+                    android:background="@color/background_color_gray"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:padding="5dip"
+                    android:singleLine="true"
+                    android:text="桌台号"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="14dip" />
+
+                <EditText
+                    android:id="@+id/table_num"
+                    android:layout_width="100dip"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_rectangle_white_with_radius_border"
+                    android:gravity="top|left"
+                    android:maxLength="30"
+                    android:padding="5dip"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textColorHint="@color/text_color_hint"
+                    android:textSize="14dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="70dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dip"
+                    android:background="@color/background_color_gray"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:padding="5dip"
+                    android:singleLine="true"
+                    android:text="备注"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="14dip" />
+
+                <EditText
+                    android:id="@+id/memo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="65dip"
+                    android:background="@drawable/shape_rectangle_white_with_radius_border"
+                    android:gravity="top|left"
+                    android:maxLength="250"
+                    android:padding="5dip"
+                    android:singleLine="false"
+                    android:text=""
+                    android:textColor="@color/text_color_black"
+                    android:textColorHint="@color/text_color_hint"
+                    android:textSize="14dip" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/other_info_slect_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical" 
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="是否含违规内容"
+                android:textColor="@color/text_color_black"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/service_for_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="为活动参加者以外的人提供招待"
+                android:textColor="@color/text_color_black"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/use_voucher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="购买代金券"
+                android:textColor="@color/text_color_black"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/late_leave_early"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="迟到/早退超30分钟"
+                android:textColor="@color/text_color_black"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/price_no_same"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="水单菜品价格和餐厅餐单价格不一致"
+                android:textColor="@color/text_color_black"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/super_wine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="高档烟酒（白酒）"
+                android:textColor="@color/text_color_black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <!-- 拍照 -->
+
+        <Button
+            android:id="@+id/button_camera"
+            android:layout_width="75dip"
+            android:layout_height="35dip"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_gray"
+            android:drawableLeft="@drawable/button_camera"
+            android:drawablePadding="0dip"
+            android:gravity="center"
+            android:paddingRight="5dip"
+            android:text="拍照"
+            android:textColor="@color/text_color_deep_gray"
+            android:textSize="14dip" />
+
+        <LinearLayout
+            android:id="@+id/image_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="#11000000"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="0dp" >
+
+            <include layout="@layout/image_item" />
+
+            <include layout="@layout/image_item" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,128 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rescueworkers"
+    android:versionCode="100"
+    android:versionName="1_0_0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="8" />
+
+    <application
+        android:name="XApplication"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
+
+        <!-- 推送服务 -->
+        <service
+            android:name="com.fg114.main.service.KeepAliveService"
+            android:enabled="true"
+            android:priority="1000" />
+        <service
+            android:name="com.fg114.main.service.UploadTaskService"
+            android:enabled="true"
+            android:priority="1000" />
+        <service
+            android:name="com.fg114.main.service.UploadGpsInfoService"
+            android:enabled="true"
+            android:priority="1000" />
+
+        <!-- 百度定位 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <!-- 闪屏页 -->
+        <activity
+            android:name=".SplashActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/IndexTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 首页 -->
+        <activity
+            android:name=".IndexActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 登录页 -->
+        <activity
+            android:name=".UserLoginActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <!-- 推送页 -->
+        <activity
+            android:name=".PushCommonActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <!-- 任务查询页 -->
+        <activity
+            android:name=".TaskHistoryActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <!-- 今日任务页 -->
+        <activity
+            android:name=".TodayTaskActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <!-- 到达页拍照（抵达餐厅、客户到达） -->
+        <activity
+            android:name=".ArrivalActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 设置页 -->
+        <activity
+            android:name=".SettingsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <!-- 地图测试页 -->
+        <activity
+            android:name="MapActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 用户签名页 -->
+        <activity
+            android:name=".UserSignActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+    </application>
+
+    <!-- 权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- SDK离线地图和cache功能需要读写外部存储器 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 获取设置信息和详情页直接拨打电话需要以下权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 使用定位功能所需权限,demo已集成百度定位SDK,不使用定位功能可去掉以下6项 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--  -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+</manifest>

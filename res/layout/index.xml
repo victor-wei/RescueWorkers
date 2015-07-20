@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_above="@+id/button_today_task" />
+
+        <Button
+            android:id="@+id/button_today_task"
+            android:layout_width="180dip"
+            android:layout_height="60dip"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_gray"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="今日任务"
+            android:textColor="@color/text_color_deep_gray"
+            android:textSize="16dip" />
+
+        <!-- 气泡 -->
+
+        <TextView
+            android:id="@+id/task_num"
+            android:layout_width="wrap_content"
+            android:layout_height="20dip"
+            android:layout_alignRight="@+id/button_today_task"
+            android:layout_alignTop="@+id/button_today_task"
+            android:layout_marginRight="-10dip"
+            android:layout_marginTop="-10dip"
+            android:background="@drawable/bg_bubble"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:text="0"
+            android:textColor="@color/text_color_white"
+            android:textSize="12dip" />
+
+        <Button
+            android:id="@+id/button_task_history"
+            android:layout_width="180dip"
+            android:layout_height="60dip"
+            android:layout_below="@+id/button_today_task"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dip"
+            android:background="@drawable/button_gray"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="任务查询"
+            android:textColor="@color/text_color_deep_gray"
+            android:textSize="16dip" />
+
+        <Button
+            android:id="@+id/button_user_sign"
+            android:layout_width="180dip"
+            android:layout_height="60dip"
+            android:layout_below="@+id/button_task_history"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dip"
+            android:background="@drawable/button_gray"
+            android:gravity="center_vertical|center_horizontal"
+            android:onClick="usersignopen"
+            android:text="用户签名"
+            android:textColor="@color/text_color_deep_gray"
+            android:textSize="16dip"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_test_ver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="测试版"
+        android:visibility="invisible"
+         />
+
+</RelativeLayout>

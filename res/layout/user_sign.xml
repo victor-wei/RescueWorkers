@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.rescueworkers.StrokeView
+        android:id="@+id/strokeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffffff" >
+    </com.rescueworkers.StrokeView>
+
+    <Button
+        android:id="@+id/btclear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/topbar_right_button"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:text="清 除 "
+        android:textColor="@color/text_color_gray"
+        android:textSize="14dip" />
+
+</RelativeLayout>
