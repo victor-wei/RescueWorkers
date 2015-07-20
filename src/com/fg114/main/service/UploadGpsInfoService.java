@@ -27,7 +27,7 @@ public class UploadGpsInfoService extends Service {
 		CommonObservable.getInstance().addObserver(new MainPageinfoObserver());
 	}
 	private static volatile boolean isRunning=false;
-	private static Thread worker = new Thread("MainPageInfo worker") {
+	private static Thread worker = new Thread("UploadGps worker") {
 
 		@Override
 		public void run() {
