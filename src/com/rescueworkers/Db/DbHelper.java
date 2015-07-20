@@ -32,7 +32,7 @@ public class DbHelper extends SQLiteOpenHelper {
 		sql = new StringBuffer();
 		sql.append("create table if not exists  taskInfo(")
 		.append(" _id integer PRIMARY KEY,")
-		.append(" id text,no text,customerName text,customerPhone text,address text,carVin text,carModel text,carColor text,type text,status text,state text,uploadFlag integer)");
+		.append(" id text,no text,customerName text,customerPhone text,address text,carVin text,carModel text,carColor text,type text,status text,state text,uploadFlag integer，operateTime Integer)");
 		db.execSQL(sql.toString());
 		//任务信息状态表
 		sql = new StringBuffer();
@@ -42,6 +42,11 @@ public class DbHelper extends SQLiteOpenHelper {
 		.append("carModel text,carColor text,type text,status text,state text,")
 		.append("createdTime integer,latitude text,longitude text,uploadFlag integer)");
 		db.execSQL(sql.toString());
+		
+		sql = new StringBuffer();
+		sql.append("create table if not exists workStatusChange(")
+		.append(" _id integer PRIMARY KEY,")
+		.append(" id text,status text,operateTime integer,uploadFlag integer)");
 		//任务照片或录音状态表
 		sql = new StringBuffer();
 		sql.append("create table if not exists  taskImageOrVoiceInfo(")

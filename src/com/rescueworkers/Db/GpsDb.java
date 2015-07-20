@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -29,8 +32,8 @@ public class GpsDb {
 	}
 
 	// 获取未上传的gps信息
-	public static List<LocationInfo> getGpsForUpload() {
-		List<LocationInfo> locationInfoList = new ArrayList<LocationInfo>();
+	public static String getGpsForUpload() {
+		JSONArray jsonArray = new JSONArray();
 		SQLiteDatabase db = Settings.dbHelper.getWritableDatabase();
 		StringBuffer sql = new StringBuffer();
 		sql.append(" uploadFlag =  ? ");
@@ -40,12 +43,11 @@ public class GpsDb {
 		try {
 			if (cursor != null && cursor.getCount() > 0) {
 				while (cursor.moveToNext()) {
-					LocationInfo locationInfo = new LocationInfo();
-					locationInfo.setUuid(cursor.getString(0));
-					locationInfo.setLattitude(cursor.getString(1));
-					locationInfo.setLongtitude(cursor.getString(2));
-					locationInfo.setLocationTime(cursor.getString(3));
-					locationInfoList.add(locationInfo);
+					JSONObject jsonObj = new JSONObject();
+					jsonObj.put("latitude", cursor.getString(1));
+					jsonObj.put("longtitude", cursor.getString(2));
+					jsonObj.put("acquisition_at", cursor.getString(3));
+					jsonArray.put(jsonObj);
 				}
 			}
 
@@ -56,6 +58,6 @@ public class GpsDb {
 				cursor.close();
 			}
 		}
-		return locationInfoList;
+		return jsonArray.toString();
 	}
 }

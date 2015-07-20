@@ -19,6 +19,7 @@ import com.rescueworkers.PushCommonActivity;
 import com.rescueworkers.R;
 import com.rescueworkers.dto.MainPageInfoDTO;
 import com.rescueworkers.task.GetMainPageInfoTask;
+import com.rescueworkers.task.UploadChangeWorkStatusTask;
 
 public class UploadTaskService extends Service {
 
@@ -26,7 +27,7 @@ public class UploadTaskService extends Service {
 		CommonObservable.getInstance().addObserver(new MainPageinfoObserver());
 	}
 	private static volatile boolean isRunning=false;
-	private static Thread worker = new Thread("MainPageInfo worker") {
+	private static Thread worker = new Thread("uploadtask worker") {
 
 		@Override
 		public void run() {
@@ -47,13 +48,14 @@ public class UploadTaskService extends Service {
 					}
 					//Log.i("KeepAliveService","working");
 					isRunning=true;
-					GetMainPageInfoTask task = new GetMainPageInfoTask(null, ContextUtil.getContext(),new Runnable() {
-						@Override
-						public void run() {
-							CommonObservable.getInstance().notifyObservers(MainPageinfoObserver.class);
-							CommonObservable.getInstance().notifyObservers(IndexActivity.MainPageinfoObserver.class);
-						}
-					},latitude,longitude,locationTime);
+					UploadChangeWorkStatusTask task = new UploadChangeWorkStatusTask(null, ContextUtil.getContext(),null);
+//					UploadChangeWorkStatusTask task = new UploadChangeWorkStatusTask(null, ContextUtil.getContext(),new Runnable() {
+//						@Override
+//						public void run() {
+//							CommonObservable.getInstance().notifyObservers(MainPageinfoObserver.class);
+//							CommonObservable.getInstance().notifyObservers(IndexActivity.MainPageinfoObserver.class);
+//						}
+//					},latitude,longitude,locationTime);
 					//---
 					task.execute(new Runnable() {
 						public void run() {

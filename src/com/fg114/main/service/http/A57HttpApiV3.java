@@ -41,6 +41,8 @@ public class A57HttpApiV3 {
 	private static final String URL_API_GET_NOT_FINISH_WORK_LIST = "/rescueWorkers/getNotFinishWorkList";
 	// 获取一定时期内所有任务列表
 	private static final String URL_API_GET_TASK_LIST = "/rescueWorkers/getTaskList";
+	// 工作状态改变
+	private static final String URL_API_POST_WORK_STATUS_CHANGE = "/rescueWorkers/workStatusChange";
 	// 已出发状态
 	private static final String url_api_rescue_have_gone = "/worker_jobs/id/departure";
 	// 已到达状态
@@ -49,6 +51,8 @@ public class A57HttpApiV3 {
 	private static final String url_api_rescue_complete = "/worker_jobs/id/complete";
 	// 已取消状态
 	private static final String url_api_rescue_cancel = "/worker_jobs/id/cancel";
+	// 上传gps信息
+	private static final String url_api_rescue_gps = "/gps";
 	// 上传任务完成 照片或录音
 	private static final String url_api_rescue_upload = "/media";
 	// 更新任务完成照片或录音
@@ -194,6 +198,27 @@ public class A57HttpApiV3 {
 						"latitide", latitude), new BasicNameValuePair(
 						"longitude", longitude), new BasicNameValuePair(
 						"acquisition_at", acquisition_at));
+		JsonPack jsonPack = mHttpApi.doHttpRequest(httpGet);
+		return jsonPack;
+	}
+
+	public JsonPack postRescueWorkStatusChange(
+			String token, // 用户token
+			String workJason) throws Exception {
+		HttpPost httpGet = mHttpApi.createHttpPost(
+				fullUrl(URL_API_POST_WORK_STATUS_CHANGE),
+				new BasicNameValuePair("token", token), new BasicNameValuePair(
+						"worker_jobs", workJason));
+		JsonPack jsonPack = mHttpApi.doHttpRequest(httpGet);
+		return jsonPack;
+	}
+	public JsonPack postGpsInfo(
+			String token, // 用户token
+			String gps) throws Exception {
+		HttpPost httpGet = mHttpApi.createHttpPost(
+				fullUrl(URL_API_POST_WORK_STATUS_CHANGE),
+				new BasicNameValuePair("token", token), new BasicNameValuePair(
+						"gps", gps));
 		JsonPack jsonPack = mHttpApi.doHttpRequest(httpGet);
 		return jsonPack;
 	}
@@ -395,7 +420,7 @@ public class A57HttpApiV3 {
 		JsonPack jsonPack = mHttpApi.doHttpRequest(httpPost);
 		return jsonPack;
 	}
-	
+
 	/**
 	 * 客户签到提交数据
 	 * 
@@ -437,7 +462,7 @@ public class A57HttpApiV3 {
 			}
 		}
 	}
-	
+
 	/**
 	 * 客户抵达餐厅提交数据
 	 * 
@@ -505,6 +530,7 @@ public class A57HttpApiV3 {
 			}
 		}
 	}
+
 	public JsonPack postArrival(String token, // 用户token
 			String uuid, // task的uuid
 			String imageLengthList, // 表示图片大小的数组（可支持多张图片）用分号分隔的方式依次存放了各图片的字节数。例如：13242314;29282

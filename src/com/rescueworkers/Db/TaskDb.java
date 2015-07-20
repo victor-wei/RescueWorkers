@@ -3,6 +3,9 @@ package com.rescueworkers.Db;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -223,17 +226,24 @@ public class TaskDb {
 		return taskList;
 	
 	}
-	public static Task getUnUploadTask(String uploadFlag) {
+	public static String getUnUploadTask(String uploadFlag) {
 		
 		Task task = null;
 		SQLiteDatabase db = Settings.dbHelper.getWritableDatabase();
 		Cursor cursor = db.query("taskUploadInfo", null, "uploadFlag = ?",
 				new String[] {  uploadFlag}, null, null, null);
+		JSONArray jsonArray = new JSONArray();
 		try {
 			if (cursor != null && cursor.getCount() > 0) {
-				if (cursor.moveToNext()) {
+				while (cursor.moveToNext()) {
 					task = new Task();
 					task.fromCusor(cursor);
+					JSONObject jsonObject = new JSONObject();
+					jsonObject.put("id", cursor.getString(0));
+					jsonObject.put("status", cursor.getString(1));
+					jsonObject.put("operateTime", cursor.getString(2));
+					jsonObject.put("uploadFlag", cursor.getInt(3));
+					jsonArray.put(jsonObject);
 				}
 			}
 			
@@ -244,7 +254,7 @@ public class TaskDb {
 				cursor.close();
 			}
 		}
-		return task;
+		return jsonArray.toString();
 		
 	}
 }

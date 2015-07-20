@@ -19,6 +19,7 @@ import com.rescueworkers.PushCommonActivity;
 import com.rescueworkers.R;
 import com.rescueworkers.dto.MainPageInfoDTO;
 import com.rescueworkers.task.GetMainPageInfoTask;
+import com.rescueworkers.task.UploadGpsInfoTask;
 
 public class UploadGpsInfoService extends Service {
 
@@ -47,13 +48,14 @@ public class UploadGpsInfoService extends Service {
 					}
 					//Log.i("KeepAliveService","working");
 					isRunning=true;
-					GetMainPageInfoTask task = new GetMainPageInfoTask(null, ContextUtil.getContext(),new Runnable() {
-						@Override
-						public void run() {
-							CommonObservable.getInstance().notifyObservers(MainPageinfoObserver.class);
-							CommonObservable.getInstance().notifyObservers(IndexActivity.MainPageinfoObserver.class);
-						}
-					},latitude,longitude,locationTime);
+					UploadGpsInfoTask task = new UploadGpsInfoTask(null, ContextUtil.getContext(),null);
+//					GetMainPageInfoTask task = new GetMainPageInfoTask(null, ContextUtil.getContext(),new Runnable() {
+//						@Override
+//						public void run() {
+//							CommonObservable.getInstance().notifyObservers(MainPageinfoObserver.class);
+//							CommonObservable.getInstance().notifyObservers(IndexActivity.MainPageinfoObserver.class);
+//						}
+//					},latitude,longitude,locationTime);
 					//---
 					task.execute(new Runnable() {
 						public void run() {
