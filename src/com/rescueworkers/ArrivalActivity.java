@@ -2,6 +2,7 @@ package com.rescueworkers;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 import android.content.ContentResolver;
@@ -12,8 +13,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RadioGroup;
 
+import com.fg114.main.mp3recorder.MP3Recorder;
 import com.fg114.main.util.ActivityUtil;
 import com.fg114.main.util.CheckUtil;
 import com.fg114.main.util.DialogUtil;
@@ -70,6 +72,9 @@ public class ArrivalActivity extends MainFrameActivity {
 	private int hasVoucher;// 使用代金券
 	private String memo;
 	private Button button_camera;
+	private Button button_record_start;
+	private Button button_record_end;
+	private MP3Recorder mRecorder = new MP3Recorder(new File(Environment.getExternalStorageDirectory(),"test.mp3"));
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -127,6 +132,8 @@ public class ArrivalActivity extends MainFrameActivity {
 		super_wine = (CheckBox) contextView.findViewById(R.id.super_wine);
 
 		button_camera = (Button) contextView.findViewById(R.id.button_camera);
+		button_record_start = (Button) contextView.findViewById(R.id.button_record_start);
+		button_record_end = (Button) contextView.findViewById(R.id.button_record_end);
 		image_layout = (LinearLayout) contextView
 				.findViewById(R.id.image_layout);
 		image_layout.removeAllViews();
@@ -159,6 +166,26 @@ public class ArrivalActivity extends MainFrameActivity {
 					DialogUtil.showToast(ArrivalActivity.this,
 							"对不起，你的手机不支持拍照上传图片");
 				}
+			}
+		});
+		button_record_start.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ViewUtils.preventViewMultipleClick(v, 1000);
+				try {
+					mRecorder.start();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		button_record_end.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ViewUtils.preventViewMultipleClick(v, 1000);
+				mRecorder.stop();
 			}
 		});
 //		if (task.status == 2) {

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -258,6 +259,7 @@ class UserLoginTask extends BaseTask {
 		if (result.getObj() != null) {
 			dto = JsonUtils.fromJson(result.getObj().toString(),
 					UserInfoDTO.class);
+			Log.i("TAG", dto.token+" token");
 		}
 	}
 
@@ -270,7 +272,7 @@ class UserLoginTask extends BaseTask {
 	private JsonPack getTestData() throws JSONException {
 		// ---------------------------测试数据
 		SystemClock.sleep(500);
-		String data = "{\"uuid\":\"123888\",\"token\":\"JUUIDF78878\",\"trueName\":\"国家宝藏\",\"name\":\"徐老五\"}";
+		String data = "{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJubyI6IjAwMDAiLCJleHAiOjE0NDAwNzg3ODF9.WspzBN8lu8e2jsgIava2XnZj2zT5JaeasVmBjaLWQpA\"}";
 		JsonPack result = new JsonPack();
 		result.setObj(new JSONObject(data));
 		// -----------------------------------

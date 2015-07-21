@@ -49,4 +49,7 @@ public class Settings {
 	public static int saveLocationTime = 60 * 1000;//60s保存经纬度信息
 	
 	public static DbHelper dbHelper ;//数据库
+	public static int CODE_TOKEN_INVALIDE = 0002;//token无效
+	public static int CODE_SUCCESS = 200;//成功
+	public static int CODE_NET_ERROR = 500;//失败
 }

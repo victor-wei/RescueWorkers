@@ -129,6 +129,10 @@ public abstract class BaseTask extends AsyncTask<Runnable, Void, JsonPack> {
 					if(runnables.length > 0){
 						result.setCallBack(runnables[0]);
 					}
+				}else{
+					if(runnables.length > 1){
+						result.setCallBack(runnables[1]);
+					}
 				}
 			} else {
 				getData();

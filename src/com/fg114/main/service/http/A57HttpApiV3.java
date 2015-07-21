@@ -26,21 +26,21 @@ public class A57HttpApiV3 {
 	private static A57HttpApiV3 instance = null;
 	// #define A2 "mobileapi.xiaomishu.com/javamobile.svc/spotcheck"
 	// #define A2 "tmobileapi.xiaomishu.com/javamobile.svc/spotcheck"
-	public static final String TEST_SERVICE_URL = "http://tmobileapi.xiaomishu.com/javamobile.svc";
-	public static final String SERVICE_URL = "http://mobileapi.xiaomishu.com/javamobile.svc";
+	public static final String TEST_SERVICE_URL = "http://appapitest.natware.com";
+	public static final String SERVICE_URL = "http://appapitest.natware.com";
 
 	public HttpApi mHttpApi;
 	public String mApiBaseUrl;
 
 	// 用户登录
-	private static final String URL_API_USER_LOGIN = "/rescueWorkers/userLogin";
+	private static final String URL_API_USER_LOGIN = "/sign_in";
 	private static final String URL_API_LOGOUT = "/rescueWorkers/logout";
 	// 获取任务主信息
 	private static final String URL_API_GET_MAIN_PAGE_INFO = "/rescueWorkers/getMainPageInfo";
 	// 获取未完成任务列表
-	private static final String URL_API_GET_NOT_FINISH_WORK_LIST = "/rescueWorkers/getNotFinishWorkList";
+	private static final String URL_API_GET_NOT_FINISH_WORK_LIST = "/worker_jobs";
 	// 获取一定时期内所有任务列表
-	private static final String URL_API_GET_TASK_LIST = "/rescueWorkers/getTaskList";
+	private static final String URL_API_GET_TASK_LIST = "/worker_jobs";
 	// 工作状态改变
 	private static final String URL_API_POST_WORK_STATUS_CHANGE = "/rescueWorkers/workStatusChange";
 	// 已出发状态
@@ -131,8 +131,8 @@ public class A57HttpApiV3 {
 			String userPwd // 密码
 	) throws Exception {
 		HttpPost httpPost = mHttpApi.createHttpPost(
-				fullUrl(URL_API_USER_LOGIN), new BasicNameValuePair("userName",
-						userName), new BasicNameValuePair("userPwd", userPwd));
+				fullUrl(URL_API_USER_LOGIN), new BasicNameValuePair("account",
+						userName), new BasicNameValuePair("password", userPwd));
 		JsonPack jsonPack = mHttpApi.doHttpRequest(httpPost);
 		return jsonPack;
 	}
@@ -390,8 +390,8 @@ public class A57HttpApiV3 {
 		HttpGet httpGet = mHttpApi.createHttpGet(
 				fullUrl(URL_API_GET_TASK_LIST), new BasicNameValuePair("token",
 						token),
-				new BasicNameValuePair("startDate", String.valueOf(startDate)),
-				new BasicNameValuePair("endDate", String.valueOf(endDate)),
+				new BasicNameValuePair("begin_at", String.valueOf(startDate)),
+				new BasicNameValuePair("end_at", String.valueOf(endDate)),
 				new BasicNameValuePair("latitide", latitude),
 				new BasicNameValuePair("longitude", longitude),
 				new BasicNameValuePair("acquisition_at", acquisition_at));

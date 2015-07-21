@@ -236,6 +236,32 @@
         <!-- 拍照 -->
 
         <Button
+            android:id="@+id/button_record_start"
+            android:layout_width="75dip"
+            android:layout_height="35dip"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_gray"
+            android:drawableLeft="@drawable/button_camera"
+            android:drawablePadding="0dip"
+            android:gravity="center"
+            android:paddingRight="5dip"
+            android:text="录音"
+            android:textColor="@color/text_color_deep_gray"
+            android:textSize="14dip" />
+        <Button
+            android:id="@+id/button_record_end"
+            android:layout_width="75dip"
+            android:layout_height="35dip"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_gray"
+            android:drawableLeft="@drawable/button_camera"
+            android:drawablePadding="0dip"
+            android:gravity="center"
+            android:paddingRight="5dip"
+            android:text="停止"
+            android:textColor="@color/text_color_deep_gray"
+            android:textSize="14dip" />
+        <Button
             android:id="@+id/button_camera"
             android:layout_width="75dip"
             android:layout_height="35dip"

@@ -10,6 +10,7 @@ import com.fg114.main.service.MyLocation;
 import com.fg114.main.service.dto.JsonPack;
 import com.fg114.main.service.http.A57HttpApiV3;
 import com.fg114.main.service.task.BaseTask;
+import com.fg114.main.util.ActivityUtil;
 import com.fg114.main.util.DialogUtil;
 import com.fg114.main.util.JsonUtils;
 import com.fg114.main.util.SessionManager;
@@ -41,7 +42,7 @@ public class GetNotFinishWorkTask extends BaseTask {
 			longitude = myLocation.getLongitude() + "";
 			locationTime = myLocation.getLocationTime();
 		}
-		if (!Settings.DEBUG) {
+		if (Settings.DEBUG) {
 			String token = SessionManager.getInstance().getUserInfo(context).token;
 			JsonPack result = A57HttpApiV3.getInstance().getNotFinishWorkList(token,
 					latitude, longitude, locationTime);
@@ -83,6 +84,10 @@ public class GetNotFinishWorkTask extends BaseTask {
 	public void onStateError(JsonPack result) {
 		closeProgressDialog();
 		DialogUtil.showToast(context, result.getMsg());
+		if(result != null && result.getRe() == Settings.CODE_TOKEN_INVALIDE){
+			//退出app重新登陆
+			
+		}
 	}
 
 	private JsonPack getTestData() throws JSONException {

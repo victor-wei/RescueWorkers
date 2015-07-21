@@ -179,7 +179,7 @@ public abstract class AbstractHttpApi implements HttpApi {
         if (responseString != null && !"".equals(responseString)) {
 	        JSONObject jsonResponse = new JSONObject(responseString);
 	        
-	        jp.setRe(jsonResponse.getInt("re"));
+	        jp.setRe(jsonResponse.getInt("code"));
 	        jp.setUrl(httpRequest.getURI().toString());
 	        
 	        if (jp.getRe() == 500) {
@@ -190,7 +190,7 @@ public abstract class AbstractHttpApi implements HttpApi {
 					msg += httpRequest.getURI().toString();
 				}
 				ActivityUtil.saveException(ex, msg);
-			} else {
+			}else {
 				jp.setMsg(jsonResponse.getString("msg"));
 			}
 	        

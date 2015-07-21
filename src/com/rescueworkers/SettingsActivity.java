@@ -64,8 +64,8 @@ public class SettingsActivity extends MainFrameActivity {
 		new_version = (TextView) contextView.findViewById(R.id.new_version);
 		
 		UserInfoDTO user=SessionManager.getInstance().getUserInfo(this);
-		name.setText(user.name);
-		true_name.setText(user.trueName);
+//		name.setText(user.name);
+//		true_name.setText(user.trueName);
 
 		btnOption.setOnClickListener(new OnClickListener() {
 			/**
