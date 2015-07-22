@@ -12,7 +12,7 @@ import android.util.DisplayMetrics;
  * */
 public class Settings {
 	public static final String[] TEST_ID = {"863061026709913"};
-	public static boolean DEBUG = true;
+	public static boolean DEBUG = false;
 	public static final StringBuffer requestLog = new StringBuffer(2048);
 	public static final String KK = "6AA89CD986019BC62B81700CD8346906";
 	// ************缓存设置。added by xu jianjun,

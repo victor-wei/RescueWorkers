@@ -13,21 +13,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
-import android.widget.RadioGroup;
 
-import com.fg114.main.mp3recorder.MP3Recorder;
+import com.fg114.main.recorder.SoundMeter;
 import com.fg114.main.util.ActivityUtil;
 import com.fg114.main.util.CheckUtil;
 import com.fg114.main.util.DialogUtil;
@@ -49,17 +45,8 @@ public class ArrivalActivity extends MainFrameActivity {
 	private View contextView;
 	private Task task;
 	private ViewGroup guest_arrival_info_layout;
-	private EditText people_num;
-	private CheckBox service_for_other;
-	private CheckBox use_voucher;
-	private CheckBox late_leave_early;
-	private CheckBox price_no_same;
-	private CheckBox super_wine;
-	private RadioGroup room_type;
 	private LinearLayout image_layout;
 	private Uri tempPath;
-	private EditText table_num;
-	private EditText ui_memo;
 
 	private String tableNum;
 	private String peopleNum = "0";
@@ -74,7 +61,7 @@ public class ArrivalActivity extends MainFrameActivity {
 	private Button button_camera;
 	private Button button_record_start;
 	private Button button_record_end;
-	private MP3Recorder mRecorder = new MP3Recorder(new File(Environment.getExternalStorageDirectory(),"test.mp3"));
+	private SoundMeter mSensor;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -83,6 +70,11 @@ public class ArrivalActivity extends MainFrameActivity {
 		if (task == null) {
 			DialogUtil.showToast(this, "没有找到任务");
 			finish();
+		}
+		try {
+			mSensor = new SoundMeter();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		// task的状态必须是0(等待抽查)或者2(抽查中)
 //		if (task.status != 0 && task.status != 2) {
@@ -116,20 +108,9 @@ public class ArrivalActivity extends MainFrameActivity {
 		contextView = View.inflate(this, R.layout.arrival, null);
 		guest_arrival_info_layout = (ViewGroup) contextView
 				.findViewById(R.id.guest_arrival_info_layout);
-		people_num = (EditText) contextView.findViewById(R.id.people_num);
-		table_num = (EditText) contextView.findViewById(R.id.table_num);
-		ui_memo = (EditText) contextView.findViewById(R.id.memo);
-		room_type = (RadioGroup) contextView.findViewById(R.id.room_type);
 
 		otherInfoSlectLayout = (LinearLayout) contextView
 				.findViewById(R.id.other_info_slect_ll);
-		service_for_other = (CheckBox) contextView
-				.findViewById(R.id.service_for_other);
-		use_voucher = (CheckBox) contextView.findViewById(R.id.use_voucher);
-		late_leave_early = (CheckBox) contextView
-				.findViewById(R.id.late_leave_early);
-		price_no_same = (CheckBox) contextView.findViewById(R.id.price_no_same);
-		super_wine = (CheckBox) contextView.findViewById(R.id.super_wine);
 
 		button_camera = (Button) contextView.findViewById(R.id.button_camera);
 		button_record_start = (Button) contextView.findViewById(R.id.button_record_start);
@@ -174,9 +155,8 @@ public class ArrivalActivity extends MainFrameActivity {
 			public void onClick(View v) {
 				ViewUtils.preventViewMultipleClick(v, 1000);
 				try {
-					mRecorder.start();
-				} catch (IOException e) {
-					e.printStackTrace();
+					mSensor.start(System.currentTimeMillis()+".amr");
+				} catch (Exception e) {
 				}
 			}
 		});
@@ -185,7 +165,7 @@ public class ArrivalActivity extends MainFrameActivity {
 			@Override
 			public void onClick(View v) {
 				ViewUtils.preventViewMultipleClick(v, 1000);
-				mRecorder.stop();
+				mSensor.stop();
 			}
 		});
 //		if (task.status == 2) {

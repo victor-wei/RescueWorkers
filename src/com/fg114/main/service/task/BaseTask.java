@@ -124,7 +124,7 @@ public abstract class BaseTask extends AsyncTask<Runnable, Void, JsonPack> {
 					requestUrl = result.getUrl();
 				}
 				
-				if (result.getRe() == 200) {
+				if (result.getRe() == 0) {
 					//设置回调函数
 					if(runnables.length > 0){
 						result.setCallBack(runnables[0]);
@@ -188,7 +188,7 @@ public abstract class BaseTask extends AsyncTask<Runnable, Void, JsonPack> {
 	protected void onPostExecute(final JsonPack result) {
 
 		if (!this.isCancelled()) {
-			if(result.getRe() == 200){
+			if(result.getRe() == 0){
 				closeProgressDialog();
 				onStateFinish(result);
 				if(result.getCallBack() != null){

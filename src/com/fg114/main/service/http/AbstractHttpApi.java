@@ -194,10 +194,10 @@ public abstract class AbstractHttpApi implements HttpApi {
 				jp.setMsg(jsonResponse.getString("msg"));
 			}
 	        
-        	if(jsonResponse.has("obj")){
-        		Object obj = jsonResponse.get("obj");
+        	if(jsonResponse.has("data")){
+        		Object obj = jsonResponse.get("data");
         		if (obj instanceof JSONObject) {
-        			JSONObject successResultObject = jsonResponse.getJSONObject("obj");  
+        			JSONObject successResultObject = jsonResponse.getJSONObject("data");  
         			jp.setObj(successResultObject);
         		}
         	}

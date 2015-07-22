@@ -10,7 +10,7 @@ import org.json.JSONObject;
  */
 public class JsonPack {
 	//请求是否成功     约定  200：成功  其他：异常
-	private int error = 200;
+	private int error = 0;
 	//异常信息
 	private String msg = "";
 	//对象 可以为null
